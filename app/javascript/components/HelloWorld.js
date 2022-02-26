@@ -7,15 +7,12 @@ const HelloWorld = ({ greeting }) => {
   const dispatch = useDispatch();
 
   const reducerGreetings = useSelector((state) => state.greetingReducer);
-
   useEffect(() => {
-    console.log(dispatch(getGreetings()));
-  }, []);
+    dispatch(getGreetings());
+  }, [dispatch]);
 
   const handleGetGreetings = () => {
-    dispatch(getGreetings());
     setGreetings(reducerGreetings);
-    console.log(greetings);
   };
 
   return (
