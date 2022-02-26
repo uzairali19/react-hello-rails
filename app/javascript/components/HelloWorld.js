@@ -2,29 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGreetings } from "../redux/actions/greeting";
 
-const HelloWorld = ({ greeting }) => {
-  const [greetings, setGreetings] = useState(null);
-  const dispatch = useDispatch();
-
+const HelloWorld = () => {
+  const [greet, setGreet] = useState(null);
   const reducerGreetings = useSelector((state) => state.greetingReducer);
-  useEffect(() => {
-    dispatch(getGreetings());
-  }, [dispatch]);
+
+  const randomInteger = (min, max) => {
+    let rand = min + Math.random() * (max + 1 - min);
+    rand = Math.floor(rand);
+    return rand;
+  };
 
   const handleGetGreetings = () => {
-    setGreetings(reducerGreetings);
+    const greetNumber = randomInteger(0, 4);
+    setGreet(greetNumber);
   };
 
   return (
     <>
-      <div>Greeting: {greeting}</div>
+      <div>
+        Greeting:
+        {reducerGreetings[greet] !== undefined && reducerGreetings[greet].greet}
+      </div>
       <button onClick={handleGetGreetings}>Get all greetings</button>
-      <ul>
-        {greetings !== null &&
-          greetings.map((greeting) => (
-            <li key={greeting.id}>{greeting.greet}</li>
-          ))}
-      </ul>
     </>
   );
 };
