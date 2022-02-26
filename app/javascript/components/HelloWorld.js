@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getGreetings } from "../redux/actions/greeting";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const HelloWorld = () => {
   const [greet, setGreet] = useState(null);
