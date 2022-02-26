@@ -1,14 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getGreetings } from "../redux/actions/greeting";
 
-class HelloWorld extends React.Component {
-  render() {
-    return <React.Fragment>Greeting: {this.props.greeting}</React.Fragment>;
-  }
-}
+const HelloWorld = ({ greeting }) => {
+  const dispatch = useDispatch();
 
-HelloWorld.propTypes = {
-  greeting: PropTypes.string,
+  useEffect(() => {
+    dispatch(getGreetings());
+  }, []);
+
+  return <div>Greeting: {greeting}</div>;
 };
 
 export default HelloWorld;
