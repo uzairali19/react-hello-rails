@@ -1,0 +1,11 @@
+{
+  "name": "react_hello_rails",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/uzairali19/react-hello-rails.git",
+  "author": "<uzairali19b@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "rubocop -a && stylelint '**/*.{css,scss}'"
+  }
+}
