@@ -1,4 +1,4 @@
-# Space Travelers
+# React Rails
 
 > This app uses `Rails` and sets up the `React` in the front-end. It further takes the `Redux` library and sets up a dummy backend server to check if the react app is able to communicate with the rails backend server.
 
